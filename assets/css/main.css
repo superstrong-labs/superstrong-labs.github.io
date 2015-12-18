@@ -1,11 +1,3 @@
-/*
-Template: 		REEN – Made for Designers
-Description: 	Creative Portfolio Bootstrap 3 Template
-Version: 		1.3.1
-Author: 		fuviz
-Demo URI: 		http://demo.fuviz.com/reen
-*/
-
 /*===================================================================================*/
 /*	GENERAL
 /*===================================================================================*/
@@ -50,9 +42,7 @@ iframe {
     background: #AAF2E4; /* Firefox */
     color: #506A85;
 }
-html:not(.no-csstransitions) main [class*="col-"] {
-	opacity: 0; /* Hide content for animations on scroll in scripts.js */
-}
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
     background-color: #283645;
