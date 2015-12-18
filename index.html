@@ -83,7 +83,7 @@
               <ul class="nav navbar-nav pull-right">
               
                 <li><a href="usecases.html">Use Cases</a></li>
-                <li><a target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=robbie@superstronglabs.com&su=Website+contact" onClick="ga('send', 'event', 'Actions', 'Contact', 'Nav');">Contact</a></li>              
+                <li><a data-toggle="modal" href="#contact" onClick="ga('send', 'event', 'Actions', 'Contact', 'Nav');">Contact</a></li>              
                 
               </ul><!-- /.nav -->
               
@@ -126,11 +126,6 @@
 
               <p>Superstrong Labs specializes in marketing consulting services and tools development for startups and technology-centric projects. Featured work includes customer acquisition and engagement, B2B inbound marketing and sales support, automation and reporting, communications, and brand building.</p>
 
-              <h2>Background</h2>
-              <p>Superstrong Labs is run by <a href="http://robbiemitchell.com">Robbie Mitchell</a>, a seasoned marketer and leader with wide ranging experience, including leadership at a Series E B2B enterprise juggernaut, leadership at a Series A mobile app, a bootstrapped entrepreneur, and shades in between.</p>
-
-              <p>Over time, Robbie developed a reputation for taking on things marketers "don't usually do," such as building and owning an API documentation portal, building a "Mailbox-style" pre-launch site using HubSpot APIs, hacking a live education product into an on-demand product that made millions, commissioning the creation and open-source release of a <a href="https://tech.knewton.com/blog/2012/07/announcing-wp-stack/">WordPress deployment framework</a>, and building a company dashboard using SQL, <a href="http://redash.io/">re:dash</a>, and Google Sheets.</p>
-
               <h2 id="services">Services</h2>
               <p>Here is a sample of the types of services offered by Superstrong Labs and its collaborators:</p>
               <ul class="circled">
@@ -143,12 +138,32 @@
                 <li><strong>Internal comms:</strong> Presentation templates, stationery, business cards, posters, merch</li>
               </ul>
               <p>Superstrong Labs can also coordinate the work of others, such as public relations and performance marketing specialists.</p>
-              <p><a href="usecases.html" class="btn btn-large">Get Started</a></p>
+
+              <h2>Background</h2>
+              <p>Superstrong Labs is run by <a href="http://robbiemitchell.com">Robbie Mitchell</a>, a seasoned marketer and leader with wide ranging experience, including leadership at a Series E B2B enterprise juggernaut, leadership at a Series A mobile app, a bootstrapped entrepreneur, and shades in between.</p>
+
+              <p>Over time, Robbie developed a reputation for taking on things marketers "don't usually do," such as building and owning an API documentation portal, building a "Mailbox-style" pre-launch site using HubSpot APIs, hacking a live education product into an on-demand product that made millions, commissioning the creation and open-source release of a <a href="https://tech.knewton.com/blog/2012/07/announcing-wp-stack/">WordPress deployment framework</a>, and building a company dashboard using SQL, <a href="http://redash.io/">re:dash</a>, and Google Sheets.</p>
+
+              <p>You can read more about his experience in this <a href="http://bit.ly/frr-mktg-engineers">First Round Review profile</a>.</p>
 
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ============================================================= SECTION – GET STARTED ============================================================= -->
+      
+      <section id="get-started" class="tint-bg">
+        <div class="container inner-sm">
+          <div class="row">
+            <div class="col-sm-11 center-block text-center">
+              <h2 class="single-block">Say hi, let's see where this goes. <a class="btn btn-large" data-toggle="modal" href="#contact" onClick="ga('send', 'event', 'Actions', 'Contact', 'Get Started');">Get Started</a></h2>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section>
+      
+      <!-- ============================================================= SECTION – GET STARTED : END ============================================================= -->
       
     </main>
     
@@ -184,7 +199,7 @@
           <p class="pull-left">© 2015 Superstrong Labs. All rights reserved.</p>
           <ul class="footer-menu pull-right">
             <li><a href="usecases.html">Use Cases</a></li>
-            <li><a target="_blank" href="https://mail.google.com/mail/u/0/?view=cm&fs=1&tf=1&to=robbie@superstronglabs.com&su=Website+contact" onClick="ga('send', 'event', 'Actions', 'Contact', 'Footer');">Contact</a></li>
+            <li><a data-toggle="modal" href="#contact" onClick="ga('send', 'event', 'Actions', 'Contact', 'Footer');">Contact</a></li>
           </ul><!-- .footer-menu -->
         </div><!-- .container -->
       </div><!-- .footer-bottom -->
@@ -192,61 +207,97 @@
     
     <!-- ============================================================= FOOTER : END ============================================================= -->
 
+
+    <!-- ============================================================= MODAL CONTACT ============================================================= -->
+    <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contact" aria-hidden="true">
+      <div class="modal-dialog modal-xs">
+        <div class="modal-content">
+          
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-cancel-1"></i></span></button>
+          </div><!-- /.modal-header -->
+          
+          <!-- ============================================================= MODAL CONTENT ============================================================= -->
+          
+          <div class="modal-body">
+            
+            <div class="container inner-xs text-center">
+              <h2>Let's talk.</h2>
+              <p>Send an email to <a href="mailto:robbie@superstronglabs.com">robbie@superstronglabs.com</a>.</p>
+
+            </div><!-- /.container -->
+            
+          </div><!-- /.modal-body -->
+          
+          <!-- ============================================================= MODAL CONTENT : END ============================================================= -->
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+          
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    
+    <!-- ============================================================= MODAL CONTACT : END ============================================================= -->
+
+
+    <!-- ============================================================= MODAL SUBSCRIBE ============================================================= -->
     <div class="modal fade" id="subscribe" tabindex="-1" role="dialog" aria-labelledby="subscribe" aria-hidden="true">
-    <div class="modal-dialog modal-sm">
-      <div class="modal-content">
-        
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-cancel-1"></i></span></button>
-        </div><!-- /.modal-header -->
-        
-        <!-- ============================================================= MODAL CONTENT ============================================================= -->
-        
-        <div class="modal-body">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
           
-          <div class="container inner-xs text-center">
-            <h2>Hi there.</h2>
-            <p>We'll email you rarely &mdash; just enough to stay relevant.</p>
-
-            <!-- Begin MailChimp Signup Form -->
-            <div id="mc_embed_signup">
-
-              <form
-                  id="subscribe-form"
-                  action="http://robbiemitchell.us6.list-manage.com/subscribe/post-json?u=b94f21b15b50e15fca025872f&amp;id=2611752d2c"
-                  method="get">
-
-                  <div>
-                      <input type="email" placeholder="you@domain.com" value="" name="EMAIL" >
-                  </div>
-
-                  <div>
-                      <input type="submit" value="Keep Me Updated" name="subscribe" class="btn btn-large">
-                  </div>
-
-                  <div id="subscribe-result">
-                  </div>
-
-              </form>
-
-            </div>
-            <!--End mc_embed_signup-->
-
-          </div><!-- /.container -->
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="icon-cancel-1"></i></span></button>
+          </div><!-- /.modal-header -->
           
-        </div><!-- /.modal-body -->
-        
-        <!-- ============================================================= MODAL CONTENT : END ============================================================= -->
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div><!-- /.modal-footer -->
-        
-      </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-  </div><!-- /.modal -->
+          <!-- ============================================================= MODAL CONTENT ============================================================= -->
+          
+          <div class="modal-body">
+            
+            <div class="container inner-xs text-center">
+              <h2>Hi there.</h2>
+              <p>We'll email you rarely &mdash; just enough to stay relevant.</p>
+
+              <!-- Begin MailChimp Signup Form -->
+              <div id="mc_embed_signup">
+
+                <form
+                    id="subscribe-form"
+                    action="http://robbiemitchell.us6.list-manage.com/subscribe/post-json?u=b94f21b15b50e15fca025872f&amp;id=2611752d2c"
+                    method="get">
+
+                    <div>
+                        <input type="email" placeholder="you@domain.com" value="" name="EMAIL" >
+                    </div>
+
+                    <div>
+                        <input type="submit" value="Keep Me Updated" name="subscribe" class="btn btn-large">
+                    </div>
+
+                    <div id="subscribe-result">
+                    </div>
+
+                </form>
+
+              </div>
+              <!--End mc_embed_signup-->
+
+            </div><!-- /.container -->
+            
+          </div><!-- /.modal-body -->
+          
+          <!-- ============================================================= MODAL CONTENT : END ============================================================= -->
+          
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div><!-- /.modal-footer -->
+          
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
   
-  <!-- ============================================================= MODAL NOTIFICATION01 : END ============================================================= -->
+    <!-- ============================================================= MODAL SUBSCRIBE : END ============================================================= -->
     
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.easing.1.3.min.js"></script>
