@@ -8,7 +8,7 @@ $(document).ready(function(){
         $form.submit(function(e) {
             e.preventDefault();
             if (!isValidEmail($form)) {
-                var error =  "A valid email address must be provided.";
+                var error =  "Please provide a valid email address.";
                 $resultElement.html(error);
                 $resultElement.css("color", "red");
             } else {
@@ -49,13 +49,11 @@ $(document).ready(function(){
                     var message = data.msg || "Sorry. Unable to subscribe. Please try again later.";
                     $resultElement.css("color", "red");
                     if (data.msg && data.msg.indexOf("already subscribed") >= 0) {
-                        message = "You're already subscribed. Thank you.";
-                        $resultElement.css("color", "black");
+                        message = "You've already subscribed.";
                     }
                     $resultElement.html(message);
                 } else {
-                    $resultElement.css("color", "black");
-                    $resultElement.html("Thank you!<br>You must confirm the subscription in your inbox.");
+                    $resultElement.html("Received! Please check your inbox. You can also email robbie@superstronglabs.com");
                 }
             }
         });
