@@ -1,0 +1,9 @@
+.ss_deals, .ss_tabs, .ss_tab_con_ht, .ss_tab_con_ch, .ss_footer { display: none; }
+
+.ss_searchpanel.ss_box400x400 { width: 100% !important; height: auto !important; }
+
+.ss_col_left, .ss_col_right { width: 400px; }
+
+.ss_searchpanel.ss_box400x400 .ss_iwrapper.ss_iwrapper_pass, .ss_searchpanel.ss_box400x400 .ss_iwrapper.ss_iwrapper_guests { width: 30px !important; }
+
+.ss_psection_adults, .ss_psection_children { padding-right: 20px; }
