@@ -9,7 +9,7 @@
     
     <title>Superstrong Labs - Tech Marketing and Special Ops</title>
 
-    <meta name="description" content="Get senior-level marketing leadership and execution on demand. Start planning, increasing, and understanding your growth.">
+    <meta name="description" content="Get help planning, executing, and understanding your growth. Senior-level marketing leadership and collaboration on demand.">
     <meta name="author" content="Robbie Mitchell">
     
     <!-- Bootstrap Core CSS -->
@@ -108,7 +108,7 @@
             <div class="col-md-8 col-sm-9 center-block text-center">
               <header>
                 <h1>Tech Marketing and Special Ops</h1>
-                <p>Get senior-level marketing leadership and execution on demand.</p>
+                <p>Get help planning, executing, and understanding your growth.</p>
                 <p><a href="#about" class="btn btn-large scroll-to">Continue</a></p>
               </header>
             </div><!-- /.col -->
@@ -239,7 +239,7 @@
           <div class="col-md-3 col-sm-6 inner">
             <h4>About</h4>
             <a href="#top" class="scroll-to"><strong>Superstrong Labs</strong></a>
-            <p>Get senior-level marketing leadership and execution on demand.</p>
+            <p>Get help planning, executing, and understanding your growth.</p>
           </div><!-- /.col -->
           
           <div class="col-md-6 col-sm-6 inner">
@@ -272,7 +272,7 @@
 
     <!-- ============================================================= MODAL CONTACT============================================================= -->
     <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contact" aria-hidden="true">
-      <div class="modal-dialog modal-xs">
+      <div class="modal-dialog modal-sm">
         <div class="modal-content">
           
           <div class="modal-header">
@@ -283,9 +283,22 @@
           
           <div class="modal-body">
             
-            <div class="container inner-xs text-center">
-              <h2>Let's Do This</h2>
-              <p>Send an email: <a href="mailto:inbound@superstronglabs.com">inbound@superstronglabs.com</a></p>
+            <div class="container inner-xs">
+              <h2>Say Hi</h2>
+              <p>Enter your information to initiate a chat right here on site.</p>
+
+              <form id="sayhi" data-parsley-validate="">
+                <label for="fullname">Full Name</label>
+                <input type="text" id="full-name" class="form-control" name="fullname" required="">
+
+                <label for="email">Email</label>
+                <input type="email" id="email-address" class="form-control" name="email" data-parsley-trigger="change" required="">
+
+                <input type="hidden" id="userId" value="">
+
+                <br>
+                <input type="submit" class="btn btn-default" value="Confirm" onclick="getFormData()">
+              </form>
 
             </div><!-- /.container -->
             
@@ -293,9 +306,9 @@
           
           <!-- ============================================================= MODAL CONTENT : END ============================================================= -->
           
-          <div class="modal-footer">
+          <!-- <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div><!-- /.modal-footer -->
+          </div> --> <!-- /.modal-footer -->
           
         </div><!-- /.modal-content -->
       </div><!-- /.modal-dialog -->
@@ -313,13 +326,37 @@
     <script src="assets/js/waypoints-sticky.min.js"></script>
     <script src="assets/js/viewport-units-buggyfill.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/parsley.min.js"></script>
+    <script src="assets/js/uuid.core.js"></script>
 
-<script type="text/javascript">
-!function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
-analytics.load("tyabgMo955IPAgI4ohzc3blx7pvs8dVp");
-analytics.page()
-}}();
-</script>
-    
+    <script type="text/javascript">
+    !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
+    analytics.load("tyabgMo955IPAgI4ohzc3blx7pvs8dVp");
+    analytics.page();
+    }}();
+    </script>
+
+    <script type="text/javascript">
+      function getFormData(){ 
+        var email = document.getElementById('email-address').value;
+        var fullname = document.getElementById('full-name').value;
+        var userid = document.getElementById('userId').value = UUID.generate();
+        analytics.identify(userid, {
+          name: fullname,
+          email: email
+        });
+      }
+      $(function () {
+        $('#sayhi').parsley().on('field:validated', function() {
+          var ok = $('.parsley-error').length === 0;
+          $('.bs-callout-info').toggleClass('hidden', !ok);
+          $('.bs-callout-warning').toggleClass('hidden', ok);
+        })
+        .on('form:submit', function() {
+          return false;
+        });
+      });
+    </script>
+
   </body>
 </html>

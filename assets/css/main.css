@@ -4483,7 +4483,7 @@ input:focus:-ms-input-placeholder {
 }
 .modal-sm {
 	max-width: 750px;
-	max-height: 500px;
+	max-height: 600px;
 }
 .modal-xs {
 	max-width: 480px;
