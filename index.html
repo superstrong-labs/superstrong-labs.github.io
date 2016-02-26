@@ -340,12 +340,15 @@
       function getFormData(){ 
         var email = document.getElementById('email-address').value;
         var fullname = document.getElementById('full-name').value;
-        var userid = document.getElementById('userId').value = UUID.generate();
+        var userid = analytics.user().id();
+        if (userid === null) {
+          var userid = document.getElementById('userId').value = UUID.generate();
+        };
         analytics.identify(userid, {
           name: fullname,
           email: email
         });
-      }
+      };
       $(function () {
         $('#sayhi').parsley().on('field:validated', function() {
           var ok = $('.parsley-error').length === 0;
