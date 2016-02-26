@@ -285,7 +285,7 @@
             
             <div class="container inner-xs">
               <h2>Say Hi</h2>
-              <p>Enter your information to initiate a chat right here on site.</p>
+              <p>Send your info and I'll get back to you ASAP.</p>
 
               <form id="sayhi" data-parsley-validate="">
                 <label for="fullname">Full Name</label>
@@ -345,6 +345,9 @@
         analytics.identify(userid, {
           name: fullname,
           email: email
+        });
+        analytics.track('Made Contact', {
+          source: 'Website Form'
         });
       };
       $(function () {
