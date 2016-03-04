@@ -337,28 +337,30 @@
     }}();
     </script>
 
-<script type="text/javascript">
-  $( "#sayhi" ).submit(function( event ) {
-    event.preventDefault();
-    var userid = analytics.user().id();
-    if (userid === null) {
-      var userid = UUID.generate();
-    }
-    var email = document.getElementById('email-address').value;
-    var fullname = document.getElementById('full-name').value;
-    analytics.identify(userid, {
-      name: fullname,
-      email: email
-    });
-    analytics.track('Made Contact', {
-      source: 'Website Form'
-    });
-    document.getElementById("modal-form").style.display = "none";
-    document.getElementById("modal-success").style.display = "block";
-    document.getElementById("modal-size").className = "modal-dialog modal-xs";
-    return false;
-  });
-</script>
+    <script type="text/javascript">
+      $("#sayhi").submit(function(event) {
+        event.preventDefault();
+        var segmentId = analytics.user().id();
+        if (segmentId === null) {
+            var userid = UUID.generate();
+        } else {
+            var userid = segmentId;
+        }
+        var email = document.getElementById('email-address').value;
+        var fullname = document.getElementById('full-name').value;
+        analytics.identify(userid, {
+            name: fullname,
+            email: email
+        });
+        analytics.track('Made Contact', {
+            source: 'Website Form'
+        });
+        document.getElementById("modal-form").style.display = "none";
+        document.getElementById("modal-success").style.display = "block";
+        document.getElementById("modal-size").className = "modal-dialog modal-xs";
+        return false;
+      });
+    </script>
 
   </body>
 </html>
