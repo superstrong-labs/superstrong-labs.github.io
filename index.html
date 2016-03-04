@@ -272,7 +272,7 @@
 
     <!-- ============================================================= MODAL CONTACT============================================================= -->
     <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contact" aria-hidden="true">
-      <div class="modal-dialog modal-sm">
+      <div id="modal-size" class="modal-dialog modal-sm">
         <div class="modal-content">
           
           <div class="modal-header">
@@ -284,20 +284,24 @@
           <div class="modal-body">
             
             <div class="container inner-xs">
-              <h2>Say Hi</h2>
-              <p>Send your info and I'll get back to you ASAP.</p>
+              <div id="modal-form">
+                <h2>Say Hi</h2>
+                <p>Send your info and I'll get back to you ASAP.</p>
 
-              <form id="sayhi" data-parsley-validate="">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="full-name" class="form-control" name="fullname" required="">
+                <form id="sayhi">
+                  <label for="fullname">Full Name</label>
+                  <input type="text" id="full-name" class="form-control" name="fullname" required="">
 
-                <label for="email">Email</label>
-                <input type="email" id="email-address" class="form-control" name="email" data-parsley-trigger="change" required="">
+                  <label for="email">Email</label>
+                  <input type="email" id="email-address" class="form-control" name="email" required="">
 
-                <br>
-                <input type="submit" class="btn btn-default" value="Confirm" onclick="getFormData()">
-              </form>
-
+                  <br>
+                  <input type="submit" class="btn btn-default" value="Confirm">
+                </form>
+              </div>
+              <div id="modal-success">
+                <h2>Success!</h2>
+              </div>
             </div><!-- /.container -->
             
           </div><!-- /.modal-body -->
@@ -324,7 +328,6 @@
     <script src="assets/js/waypoints-sticky.min.js"></script>
     <script src="assets/js/viewport-units-buggyfill.js"></script>
     <script src="assets/js/scripts.js"></script>
-    <script src="assets/js/parsley.min.js"></script>
     <script src="assets/js/uuid.core.js"></script>
 
     <script type="text/javascript">
@@ -334,33 +337,28 @@
     }}();
     </script>
 
-    <script type="text/javascript">
-      function getFormData(){ 
-        var email = document.getElementById('email-address').value;
-        var fullname = document.getElementById('full-name').value;
-        var userid = analytics.user().id();
-        if (userid === null) {
-          var userid = UUID.generate();
-        };
-        analytics.identify(userid, {
-          name: fullname,
-          email: email
-        });
-        analytics.track('Made Contact', {
-          source: 'Website Form'
-        });
-      };
-      $(function () {
-        $('#sayhi').parsley().on('field:validated', function() {
-          var ok = $('.parsley-error').length === 0;
-          $('.bs-callout-info').toggleClass('hidden', !ok);
-          $('.bs-callout-warning').toggleClass('hidden', ok);
-        })
-        .on('form:submit', function() {
-          return false;
-        });
-      });
-    </script>
+<script type="text/javascript">
+  $( "#sayhi" ).submit(function( event ) {
+    event.preventDefault();
+    var userid = analytics.user().id();
+    if (userid === null) {
+      var userid = UUID.generate();
+    }
+    var email = document.getElementById('email-address').value;
+    var fullname = document.getElementById('full-name').value;
+    analytics.identify(userid, {
+      name: fullname,
+      email: email
+    });
+    analytics.track('Made Contact', {
+      source: 'Website Form'
+    });
+    document.getElementById("modal-form").style.display = "none";
+    document.getElementById("modal-success").style.display = "block";
+    document.getElementById("modal-size").className = "modal-dialog modal-xs";
+    return false;
+  });
+</script>
 
   </body>
 </html>
