@@ -302,6 +302,10 @@
               <div id="modal-success">
                 <h2>Starting Conversation ...</h2>
               </div>
+              <div id="modal-form-mobile">
+                <h2>Say Hi</h2>
+                <p id="mobile-email"></p>
+              </div>
             </div><!-- /.container -->
             
           </div><!-- /.modal-body -->
@@ -328,6 +332,7 @@
     <script src="assets/js/waypoints-sticky.min.js"></script>
     <script src="assets/js/viewport-units-buggyfill.js"></script>
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/detectmobilebrowser.js"></script>
 
     <script type="text/javascript">
     !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="3.1.0";
@@ -337,6 +342,17 @@
     </script>
 
     <script type="text/javascript">
+      // Change contact medium for mobile visitors
+      if (jQuery.browser.mobile == true) {
+          document.getElementById("modal-size").className = "modal-dialog modal-xs";
+          document.getElementById("modal-form").style.display = "none";
+          document.getElementById("modal-form-mobile").style.display = "block";
+          var emailE='superstronglabs.com';
+          var emailE=('inbound' + '@' + emailE);
+          var mobile-contact = 'Mobile visitors, please email me: <a href="mailto:' + emailE + '">' + emailE + '</a>');
+          document.getElementById("mobile-email").innerHTML = mobile-contact;
+      }
+      // Identify non-mobile visitors
       $("#sayhi").submit(function(event) {
         event.preventDefault();
         var segmentId = analytics.user().id();
@@ -361,6 +377,7 @@
         setTimeout(newDrift, 2000);
         return false;
       });
+      // Launch in-app chat
       function newDrift() {
         document.getElementById("close-modal").click();
         driftt.on('ready', function(api) {
