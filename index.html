@@ -286,7 +286,7 @@
             <div class="container inner-xs">
               <div id="modal-form">
                 <h2>Say Hi</h2>
-                <p>Send your info and I'll get back to you ASAP.</p>
+                <p>This will open a chat right here. I'll get your message via email, too.</p>
 
                 <form id="sayhi">
                   <label for="fullname">Full Name</label>
@@ -344,16 +344,20 @@
     <script type="text/javascript">
       // Change contact medium for mobile visitors
       if (jQuery.browser.mobile === true) {
-          document.getElementById("modal-size").className = "modal-dialog modal-xs";
-          document.getElementById("modal-form").style.display = "none";
-          document.getElementById("modal-form-mobile").style.display = "block";
+          document.getElementById('modal-size').className = 'modal-dialog modal-xs';
+          document.getElementById('modal-form').style.display = 'none';
+          document.getElementById('modal-form-mobile').style.display = 'block';
           var emailE = 'superstronglabs.com';
           var emailE = ('inbound' + '@' + emailE);
           var mobileContact = 'Mobile visitors, please email me: <a href="mailto:' + emailE + '">' + emailE + '</a>';
           document.getElementById("mobile-email").innerHTML = mobileContact;
       }
+      // When modal opens, set focus to first form field when 
+      $('#contact').on('shown.bs.modal', function (e) {
+          document.getElementById("full-name").focus();
+        })
       // Identify non-mobile visitors
-      $("#sayhi").submit(function(event) {
+      $('#sayhi').submit(function(event) {
         event.preventDefault();
         var segmentId = analytics.user().id();
         var anonymousId = analytics.user().anonymousId();
@@ -371,15 +375,15 @@
         analytics.track('Made Contact', {
             source: 'Website Form'
         });
-        document.getElementById("modal-form").style.display = "none";
-        document.getElementById("modal-success").style.display = "block";
-        document.getElementById("modal-size").className = "modal-dialog modal-xs";
+        document.getElementById('modal-form').style.display = 'none';
+        document.getElementById('modal-success').style.display = 'block';
+        document.getElementById('modal-size').className = 'modal-dialog modal-xs';
         setTimeout(newDrift, 2000);
         return false;
       });
       // Launch in-app chat
       function newDrift() {
-        document.getElementById("close-modal").click();
+        document.getElementById('close-modal').click();
         driftt.on('ready', function(api) {
           api.goToNewConversation()
         })
