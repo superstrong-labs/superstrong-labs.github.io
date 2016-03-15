@@ -343,14 +343,14 @@
 
     <script type="text/javascript">
       // Change contact medium for mobile visitors
-      if (jQuery.browser.mobile == true) {
+      if (jQuery.browser.mobile === true) {
           document.getElementById("modal-size").className = "modal-dialog modal-xs";
           document.getElementById("modal-form").style.display = "none";
           document.getElementById("modal-form-mobile").style.display = "block";
-          var emailE='superstronglabs.com';
-          var emailE=('inbound' + '@' + emailE);
-          var mobile-contact = 'Mobile visitors, please email me: <a href="mailto:' + emailE + '">' + emailE + '</a>';
-          document.getElementById("mobile-email").innerHTML = mobile-contact;
+          var emailE = 'superstronglabs.com';
+          var emailE = ('inbound' + '@' + emailE);
+          var mobileContact = 'Mobile visitors, please email me: <a href="mailto:' + emailE + '">' + emailE + '</a>';
+          document.getElementById("mobile-email").innerHTML = mobileContact;
       }
       // Identify non-mobile visitors
       $("#sayhi").submit(function(event) {
