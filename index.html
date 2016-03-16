@@ -205,7 +205,7 @@
             <div class="col-md-8 col-sm-9">
 
               <h3>Hourly</h3>
-              <p>On-demand consulting is available at $200/hr, rounded up to the nearest quarter hour. Get immediate help vetting your plans, critiquing your funnel, interviewing a marketing candidate, etc.</p>
+              <p>On-demand consulting is available hourly, rounded up to the nearest quarter hour. Get immediate help vetting your plans, critiquing your funnel, interviewing a marketing candidate, etc.</p>
               <p>Rates are discounted for reserved instances and projects (see below).</p>
 
               <h3>Reserved Instance</h3>
@@ -297,7 +297,7 @@
             <div class="container inner-xs">
               <div id="modal-form">
                 <h2>Say Hi</h2>
-                <p>This will open a new message.</p>
+                <p>This will open a new message. Or, you can email <span id="safe-email"></span></p>
 
                 <form id="sayhi">
                   <label for="fullname">Full Name</label>
@@ -315,7 +315,7 @@
               </div>
               <div id="modal-form-mobile">
                 <h2>Say Hi</h2>
-                <p id="mobile-email"></p>
+                <p id="safe-email"></p>
               </div>
             </div><!-- /.container -->
             
@@ -362,7 +362,11 @@
           var emailE = ('inbound' + '@' + emailE);
           var mobileContact = 'Mobile visitors, please email me: <a href="mailto:' + emailE + '">' + emailE + '</a>';
           document.getElementById("mobile-email").innerHTML = mobileContact;
-      }
+      } else
+          var emailE = 'superstronglabs.com';
+          var emailE = ('inbound' + '@' + emailE);
+          var emailContact = '<a href="mailto:' + emailE + '">' + emailE + '</a>';
+          document.getElementById("safe-email").innerHTML = emailContact;
       // When modal opens, set focus to first form field when 
       $('#contact').on('shown.bs.modal', function (e) {
           document.getElementById("full-name").focus();
