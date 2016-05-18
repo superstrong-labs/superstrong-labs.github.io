@@ -283,7 +283,7 @@
 
     <!-- ============================================================= MODAL CONTACT============================================================= -->
     <div class="modal fade" id="contact" tabindex="-1" role="dialog" aria-labelledby="contact" aria-hidden="true">
-      <div id="modal-size" class="modal-dialog modal-sm">
+      <div id="modal-size" class="modal-dialog modal-xs">
         <div class="modal-content">
           
           <div class="modal-header">
@@ -297,22 +297,8 @@
             <div class="container inner-xs">
               <div id="modal-form">
                 <h2>Say Hi</h2>
-                <p>This will open a new message. Or, you can email <span id="safe-email"></span></p>
+                <p>Please email <span id="safe-email"></span></p>
 
-                <form id="sayhi">
-                  <label for="fullname">Full Name</label>
-                  <input type="text" id="full-name" class="form-control" name="fullname" required="">
-
-                  <label for="email">Email</label>
-                  <input type="email" id="email-address" class="form-control" name="email" required="">
-
-                  <br>
-                  <input type="submit" class="btn btn-default" value="Confirm">
-                </form>
-              </div>
-              <div id="modal-success">
-                <h2>Starting Conversation ...</h2>
-              </div>
               <div id="modal-form-mobile">
                 <h2>Say Hi</h2>
                 <p id="mobile-email"></p>
@@ -399,8 +385,11 @@
       // Launch in-app chat
       function newDrift() {
         document.getElementById('close-modal').click();
-        driftt.on('ready', function(api) {
-          api.goToNewConversation()
+        analytics.ready(function() {
+          driftt.on('ready', function(api) {
+            api.goToNewConversation();
+            e.preventDefault();
+          })
         })
       };
     </script>
